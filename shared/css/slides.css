@@ -73,3 +73,7 @@ body {
 .slide-previous{
     left: 1rem;
 }
+
+.hide {
+    display: none;
+}

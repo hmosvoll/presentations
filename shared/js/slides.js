@@ -1,20 +1,21 @@
 (() => {
     const nextElement = document.querySelector("#next");
     const previousElement = document.querySelector("#previous");
+    const slidesElement = document.querySelector("#slides");
+    const slideElements = slidesElement.querySelectorAll("section");
+    const numberOfSlides = slideElements.length;
+    let currentSlide = 1;
 
     document.addEventListener("keydown", (event) => {
-        if(nextElement && event.key === "ArrowRight"){
+        if(nextElement && event.key === "ArrowRight" && currentSlide < numberOfSlides){
             nextElement.click();
         }
-        if(previousElement && event.key === "ArrowLeft"){
+        if(previousElement && event.key === "ArrowLeft" && currentSlide > 1){
             previousElement.click();
         }
     });
 
-    const slidesElement = document.querySelector("#slides");
-    const slideElements = slidesElement.querySelectorAll("section");
-    let currentSlide = 0;
-
+    // TODO: Make linkable
     nextElement.addEventListener("click", () => {
         currentSlide++;
         setSlide();
@@ -26,7 +27,19 @@
     });
 
     function setSlide () {
-        slidesElement.style.marginLeft = `-${ currentSlide * 100 }vw`;
+        if(numberOfSlides === currentSlide){
+            nextElement.classList.add("hide");
+        }  else {
+            nextElement.classList.remove("hide");
+        }
+
+        if(currentSlide === 1){
+            previousElement.classList.add("hide");
+        } else {
+            previousElement.classList.remove("hide");
+        }
+
+        slidesElement.style.marginLeft = `-${ (currentSlide - 1) * 100 }vw`;
     }
 
     hljs.highlightAll();
