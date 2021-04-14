@@ -6,6 +6,7 @@ class codePreview extends HTMLElement {
     async init(){
         const filepath = this.getAttribute("file");
         const linenumbers = this.getAttribute("lines");
+        const fileExtension = /[a-z]+$/.exec(filepath)[0];
         
         // console.log("Filepath: ", filepath);
         // console.log("Lines: ", lines);
@@ -14,8 +15,6 @@ class codePreview extends HTMLElement {
         const response = await fetch(filepath);
 
         const fileString = await response.text();
-
-        console.log(fileString);
         // console.log(fileLines);
 
         // if(linenumbers){
@@ -30,8 +29,11 @@ class codePreview extends HTMLElement {
 
         const pre = document.createElement("pre");
         const code = document.createElement("code");
+
+        console.log(filepath);
+        console.log(fileExtension);
         
-        code.classList.add("html");
+        code.classList.add(fileExtension);
         code.textContent = fileString;
 
         pre.append(code);
