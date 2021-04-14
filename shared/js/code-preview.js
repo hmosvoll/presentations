@@ -14,27 +14,31 @@ class codePreview extends HTMLElement {
         // TODO: Error handling 
         const response = await fetch(filepath);
 
-        const fileString = await response.text();
-        // console.log(fileLines);
+        const fileContent = await response.text();
 
-        // if(linenumbers){
-        //     const fileLines = fileString.split(/[\r\n]+/);
+        let codeContent = fileContent;
 
-        //     const linenumbersSplit = linenumbers.split("-");
-        //     const startLine = linenumbersSplit[0];
-        //     const endLine = linenumbersSplit[1];
+        if(linenumbers){
+            const fileContentSplit = fileContent.split(/[\r\n]/);
 
-        //     fileLines.slice(2, 4)
-        // }
+            const linenumbersSplit = linenumbers.split("-");
+            const startLine = linenumbersSplit[0] - 1;
+            const endLine = linenumbersSplit[1];
+
+            console.log(filepath);
+            console.log(startLine);
+            console.log(endLine);
+
+            // TODO: improve variable naming
+            const fileContentSplitSelectedLines = fileContentSplit.slice(startLine, endLine);
+            codeContent = fileContentSplitSelectedLines.join("\n");
+        }
 
         const pre = document.createElement("pre");
         const code = document.createElement("code");
-
-        console.log(filepath);
-        console.log(fileExtension);
         
         code.classList.add(fileExtension);
-        code.textContent = fileString;
+        code.textContent = codeContent;
 
         pre.append(code);
         this.append(pre);
