@@ -39,7 +39,7 @@ class codePreview extends HTMLElement {
         pre.append(code);
         this.append(pre);
 
-        hljs.highlightAll();
+        hljs.highlightBlock(code);
     }
 }
 

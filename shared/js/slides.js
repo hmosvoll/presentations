@@ -41,6 +41,4 @@
 
         slidesElement.style.marginLeft = `-${ (currentSlide - 1) * 100 }vw`;
     }
-
-    hljs.highlightAll();
 })();
