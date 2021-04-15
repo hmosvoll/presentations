@@ -25,24 +25,26 @@ class codePreview extends HTMLElement {
             const startLine = linenumbersSplit[0] - 1;
             const endLine = linenumbersSplit[1];
 
-            console.log(filepath);
-            console.log(startLine);
-            console.log(endLine);
-
             // TODO: improve variable naming
             const fileContentSplitSelectedLines = fileContentSplit.slice(startLine, endLine);
             codeContent = fileContentSplitSelectedLines.join("\n");
         }
+
+        // TODO: Is this the best tag? figure / figcaption? 
+        const heading = document.createElement("h3");
+        heading.classList.add("code-preview-heading");
+        heading.textContent = filepath;
+        this.append(heading);
 
         const pre = document.createElement("pre");
         const code = document.createElement("code");
         
         code.classList.add(fileExtension);
         code.textContent = codeContent;
-
+       
         pre.append(code);
         this.append(pre);
-
+        
         hljs.highlightBlock(code);
     }
 }

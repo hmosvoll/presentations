@@ -26,8 +26,8 @@
     </nav>
     <div id="slides" class="slides">
         <section>
-            <h1>Presentation</h1>
-            <p>A presentation about improving upon <a href="https://hmosvoll.github.io/portal/">another presentation</a> 😛</p>
+            <h1> &lt; Presentation name &gt; </h1>
+            <p>A presentation about improving upon the implementation of <a href="https://hmosvoll.github.io/portal/">another presentation</a> 😛</p>
         </section>
         <section>
             <h2>Things to fix</h2>
@@ -44,17 +44,36 @@
             </ul>
         </section>
         <section>
-            <h2> Redundancy in head / layout </h2>
-            <code-preview file="index.html" lines="3-17"></code-preview>
+            <h2>Redundancy in head / layout / slide</h2>
+            <code-preview file="https://hmosvoll.github.io/portal/index.html" lines="3-13"></code-preview>
+            <code-preview file="https://hmosvoll.github.io/portal/demo-code.html" lines="3-15"></code-preview>
         </section>
         <section>
-            <h2>Redundancy in slide functionaliy</h2>
-            <code-preview file="index.html" lines="3-17"></code-preview>
-            <code-preview file="https://hmosvoll.github.io/portal/index.html" lines="10-20"></code-preview>
+            <h2>Solution: one file</h2>
+            <code-preview file="index.html" lines="27-45"></code-preview>
+            <code-preview file="../shared/css/slides.css" lines="10-15"></code-preview>
+            <code-preview file="../shared/js/slides.js" lines="42-42"></code-preview>
         </section>
         <section>
-            <h2>Redundancy in code preview</h2>
+            <h2>Redundancy in code elements</h2>
+            <code-preview file="https://hmosvoll.github.io/portal/demo-code.html" lines="29-60"></code-preview>
+        </section>
+        <section>
+            <h2>Solution: code-preview component</h2>
+            <code-preview file="index.html" lines="46-65"></code-preview>
+        </section>
+        <section>
+            <h2>Solution: code-preview component</h2>
             <code-preview file="../shared/js/code-preview.js"></code-preview>
+        </section>
+        <section>
+            <h2>Futher improvements</h2>
+            <ul>
+                <li>Slides func as web components?</li>
+                <li>#anchor support for linkability (Is that a word?)</li>
+                <li>Code preview negate lines</li>
+                <li>Is slides the best option?</li>
+            </ul>
         </section>
     </div>
 </body>

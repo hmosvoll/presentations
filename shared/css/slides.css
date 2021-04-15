@@ -27,9 +27,22 @@ body {
     overflow-y: scroll;
 }
 
+
+.slides pre{
+    margin-top: 0.5rem;
+}
+
 .slides code {
+    /* TODO: Fix these lazy vw properties */
+    width: 75vw;
+    max-height: 80vh;
     font-size: 1.25rem;
     padding: 1rem;
+}
+
+.slides .code-preview-heading {
+    font-size: 1rem;
+    margin: 1.5rem 0 0;
 }
 
 .slides h1 {
